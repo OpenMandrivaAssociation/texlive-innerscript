@@ -1,6 +1,6 @@
 Name:		texlive-innerscript
 Version:	57672
-Release:	1
+Release:	2
 Summary:	Modifies automatic mathematics spacing
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/innerscript
