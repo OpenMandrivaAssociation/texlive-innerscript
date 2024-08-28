@@ -1,5 +1,5 @@
 Name:		texlive-innerscript
-Version:	68776
+Version:	72066
 Release:	1
 Summary:	Modifies automatic mathematics spacing
 Group:		Publishing
