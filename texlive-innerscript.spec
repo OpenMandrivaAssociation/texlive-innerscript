@@ -3,7 +3,7 @@ Version:	72066
 Release:	1
 Summary:	Modifies automatic mathematics spacing
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/innerscript
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/innerscript
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.doc.r%{version}.tar.xz
