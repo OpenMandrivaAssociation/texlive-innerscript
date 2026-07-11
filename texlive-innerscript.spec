@@ -1,42 +1,27 @@
-Name:		texlive-innerscript
-Version:	72066
-Release:	1
-Summary:	Modifies automatic mathematics spacing
+%global tl_name innerscript
+%global tl_revision 75161
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.4a
+Release:	%{tl_revision}.1
+Summary:	Small modifications to math formatting
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/innerscript
+URL:		https://www.ctan.org/tex-archive/macros/luatex/latex/innerscript
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/innerscript.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package modifies two aspects of TeX's automatic interatom
-mathematics spacing. It uses LuaTeX's \Umath primitives to make
-superscripts and subscripts more closely resemble \textstyle
-and \displaystyle math and to treat \mathinner subformulas as
-\mathord, effectively eliminating this class.
+This package optionally modifies four aspects of TeX's automatic math
+formatting to improve typesetting: (1) it adds extra space around
+relation and operation symbols in superscripts and subscripts; (2) it
+removes extra space around \left-\right delimiter pairs; (3) it adds
+extra space after right delimiters in certain situations; and (4) it
+forces \left and \right delimiters to completely cover their contents.
+Using LuaLaTeX is required.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/lualatex/innerscript
-%{_texmfdistdir}/tex/lualatex/innerscript
-%doc %{_texmfdistdir}/doc/lualatex/innerscript
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
